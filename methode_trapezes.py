@@ -47,3 +47,11 @@ def methode_trapezes_numpy(P, a, b, nbre):
     integrale = np.sum(calcul)
 
     return integrale, 0
+
+
+def methode_trapeze_existante(P, a, b, n):
+    x = np.linspace(a, b, n + 1)
+    y = evaluation(P, x)
+    return np.trapz(y)
+
+print(methode_trapeze_existante([1,2,3,4], 0, 10, 10))
