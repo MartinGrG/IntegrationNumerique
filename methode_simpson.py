@@ -1,6 +1,7 @@
 """Ce script permet d'évaluer une intégrale en utilisant la méthode de Simpson"""
 import numpy as np
 from calculs import *
+import scipy as sp
 
 
 def methode_simpson_python(p, a, b, n):
@@ -25,3 +26,11 @@ def methode_simpson_numpy(p, a, b, n):
     x1 = x[1: len(x)]  # Liste des points de fin du calcul d'intégral
     integrale_segment = ((x1 - x0)/6) * (evaluation(p, x0) + 4 * evaluation(p, (x0 + x1)/2) + evaluation(p, x1))
     return np.sum(integrale_segment), 0
+
+
+def methode_simpson_existante(P, a, b, n):
+    x = np.linspace(a, b, n + 1)
+    y = evaluation(P, x)
+    return sp.integrate.simpson(y)
+
+print(methode_simpson_existante([1,2,3,4], 0, 10, 10))
