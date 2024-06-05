@@ -31,8 +31,7 @@ def methode_trapezes_python(P, a, b, nbre):
     for i in range(len(x)-1):
         integrale += (x[i+1]-x[i])*((evaluation(P,x[i+1])+evaluation(P,x[i]))/2)
 
-    return integrale
-
+    return integrale, 0
 
 def methode_trapezes_numpy(P, a, b, nbre):
     # vecteur x abscisses
@@ -47,4 +46,4 @@ def methode_trapezes_numpy(P, a, b, nbre):
     # l'integrale est la somme du vecteur composé par chacune des aires
     integrale = np.sum(calcul)
 
-    return integrale
+    return integrale, 0
