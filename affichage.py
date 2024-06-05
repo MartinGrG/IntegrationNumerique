@@ -1,35 +1,58 @@
-# -------------------------------------------------------------------------- #
-               #SCRIPT REALISANT L'AFFICHAGE DES DIFFERENTES METHODES
-# -------------------------------------------------------------------------- #
-# MGA-802
-
-
-# -------------------------------------------------------------------------- #
-                              #IMPORTATION#
-# -------------------------------------------------------------------------- #
 import matplotlib.pyplot as plt
-from methode_rectangles import *
-from calculs import evaluation
+import analyse
+import methode_rectangles
+import methode_trapezes
+import methode_simpson
 
-# -------------------------------------------------------------------------- #
-                              #FONCTIONS#
-# -------------------------------------------------------------------------- #
-liste = [1,2,3,4]
+# Tracé temps de réponse de chaque méthode
 a = 0
 b = 10
-n = 10
-x = np.linspace(a, b, n + 1)
+liste_nbre_seg = [i*(b-a) for i in range(1,11)]
+rect_base_tps = compare(methode_rectangle_python, a, b)
+rect_numpy_tps = compare(methode_rectangle_numpy, a, b)
+trap_base_tps = compare(methode_trapeze_python, a, b)
+trap_numpy_tps = compare(methode_trapeze_numpy, a, b)
+simp_base_tps = compare(methode_simpson_python, a, b)
+simp_numpy_tps = compare(methode_simpson_numpy, a, b)
 
-#Plot de la focntion analytique
-y_analytique = evaluation(liste, x)
-plt.plot(x,y_analytique)
+plt.plot(liste_nbre_seg, rect_base_tps, 'r-', label='Méthode des rectangles de base')
+plt.plot(liste_nbre_seg, rect_numpy_tps, 'r--', label='Méthode des rectangles Numpy')
+plt.plot(liste_nbre_seg, trap_base_tps, 'b-', label='Méthode des trapèzes de base')
+plt.plot(liste_nbre_seg, trap_numpy_tps, 'b--', label='Méthode des trapèzes Numpy')
+plt.plot(liste_nbre_seg, simp_base_tps, 'g-', label='Méthode Simpson de base')
+plt.plot(liste_nbre_seg, simp_numpy_tps, 'g--', label='Méthode Simpson Numpy')
 
-#Affichage de la méthode des rectangles
+plt.title('Tracé du temps de réponse en fonction du nombre de segments')
+plt.xlabel('Nombre de segments')
+plt.ylabel('Temps de réponse')
+plt.legend()
 
-y_rectangle = methode_rectangle_numpy(liste, a, b, n)[1]
+plt.show()
 
 
+# Tracé erreur de chaque méthode
+a = 0
+b = 10
+liste_nbre_seg = [i*(b-a) for i in range(1,11)]
+rect_base_err = compare(methode_rectangle_python, a, b)
+rect_numpy_err = compare(methode_rectangle_numpy, a, b)
+trap_base_err = compare(methode_trapeze_python, a, b)
+trap_numpy_err = compare(methode_trapeze_numpy, a, b)
+simp_base_err = compare(methode_simpson_python, a, b)
+simp_numpy_err = compare(methode_simpson_numpy, a, b)
 
+plt.plot(liste_nbre_seg, rect_base_err, 'r-', label='Méthode des rectangles de base')
+plt.plot(liste_nbre_seg, rect_nump_err, 'r--', label='Méthode des rectangles Numpy')
+plt.plot(liste_nbre_seg, trap_base_err, 'b-', label='Méthode des trapèzes de base')
+plt.plot(liste_nbre_seg, trap_numpy_err, 'b--', label='Méthode des trapèzes Numpy')
+plt.plot(liste_nbre_seg, simp_base_err, 'g-', label='Méthode Simpson de base')
+plt.plot(liste_nbre_seg, simp_numpy_err, 'g--', label='Méthode Simpson Numpy')
 
+plt.title('Tracé des erreurs relatives en fonction du nombre de segments')
+plt.xlabel('Nombre de segments')
+plt.ylabel('Erreur relative')
+plt.legend()
+
+plt.show()
 
 
