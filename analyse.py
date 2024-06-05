@@ -1,5 +1,8 @@
 
 from timeit import timeit
+
+import numpy as np
+
 from calculs import integrale_analytique
 
 
@@ -14,13 +17,11 @@ def analyse(nom_fct, P, a, b, nbre_seg):
 
 def compare(nom_fct1, nom_fct2, P, a, b):
 
-    tableau_compare = [[],[]]
-    tableau_compare[0].append(nom_fct1)
-    tableau_compare[1].append(nom_fct2)
+    tableau_compare = np.zeros([2,3,10])
 
-    for i in range(11):
-        tableau_compare[0].append(analyse(nom_fct1, P, a, b, int((b-a)*(i+1))))
-        tableau_compare[1].append(analyse(nom_fct2, P, a, b, int((b-a)*(i+1))))
+    for i in range(1,11):
+        tableau_compare[0,:,i].append(analyse(nom_fct1, P, a, b, int((b-a)*(i))))
+        tableau_compare[1,:,i].append(analyse(nom_fct2, P, a, b, int((b-a)*(i))))
 
 
     return tableau_compare
