@@ -32,5 +32,3 @@ def methode_simpson_existante(P, a, b, n):
     x = np.linspace(a, b, n + 1)
     y = evaluation(P, x)
     return sp.integrate.simpson(y)
-
-print(methode_simpson_existante([1,2,3,4], 0, 10, 10))
