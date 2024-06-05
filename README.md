@@ -1,2 +1,2 @@
-# Sucr-AuSucre
+# SucréAuSucre
 Projet calcul intégral 
