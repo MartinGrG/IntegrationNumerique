@@ -1,10 +1,6 @@
 
 from timeit import timeit
 from calculs import integrale_analytique
-import numpy as np
-
-from methode_rectangles import *
-from methode_trapezes import *
 
 
 def analyse(nom_fct, P, a, b, nbre_seg):
@@ -28,5 +24,3 @@ def compare(nom_fct1, nom_fct2, P, a, b):
 
 
     return tableau_compare
-
-print(compare(methode_trapezes_python, methode_trapezes_numpy, [1,2,3,4], 0 , 10))
