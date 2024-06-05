@@ -3,7 +3,7 @@ import numpy as np
 from calculs import *
 
 
-def methode_simpson_base(p, a, b, n):
+def methode_simpson_python(p, a, b, n):
     """ Cette fonction calcule l'intégrale d'un polynôme du 3ème degrés dont les coefficients sont dans p,
      entre a et b, en découpant l'intervalle en n segments. Cette fonction n'utilise pas numpy """
     pas = (b-a)/n
