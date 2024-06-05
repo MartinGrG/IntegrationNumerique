@@ -20,8 +20,8 @@ def compare(nom_fct1, nom_fct2, P, a, b):
     tableau_compare = np.zeros([2,3,10])
 
     for i in range(1,11):
-        tableau_compare[0,:,i-1].append(analyse(nom_fct1, P, a, b, int((b-a)*(i))))
-        tableau_compare[1,:,i-1].append(analyse(nom_fct2, P, a, b, int((b-a)*(i))))
+        tableau_compare[0,:,i-1] = (analyse(nom_fct1, P, a, b, int((b-a)*(i))))
+        tableau_compare[1,:,i-1] = (analyse(nom_fct2, P, a, b, int((b-a)*(i))))
 
 
     return tableau_compare
