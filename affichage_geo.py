@@ -51,9 +51,9 @@ def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectang
     plt.vlines(x_segment, 0, y_segment, colors='orange', linewidth=1)
 
     # Plot fonction analytique
-    x = np.linspace(a, b, 1000)
-    y_analytique = evaluation(liste, x)
-    plt.plot(x, y_analytique)
+    x_analytique = np.linspace(a, b, 1000)
+    y_analytique = evaluation(liste, x_analytique)
+    plt.plot(x_analytique, y_analytique, label=f'f(x) = {liste[0]} + {liste[1]}x + {liste[2]}x^2 + {liste[3]}x^3', color= 'blue')
     plt.xlabel('x')
     plt.ylabel('f(x)')
     plt.title('Intégration par la méthode des rectangles')
@@ -76,7 +76,7 @@ def affichage_trapeze(liste, a, b, n):
     # Plot fonction analytique
     x_analytique = np.linspace(a, b, 1000)
     y_analytique = evaluation(liste, x_analytique)
-    plt.plot(x_analytique, y_analytique)
+    plt.plot(x_analytique, y_analytique, label=f'f(x) = {liste[0]} + {liste[1]}x + {liste[2]}x^2 + {liste[3]}x^3', color= 'blue')
     plt.xlabel('x')
     plt.ylabel('f(x)')
     plt.title('Intégration par la méthode des Trapèzes')
@@ -134,4 +134,4 @@ def affichage_simpson(liste, a, b, n):
     plt.show()
     return 0
 
-
+affichage_trapeze([1,-200,-300,4], 0, 100, 5)
