@@ -44,12 +44,17 @@ def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectang
         j += 1
 
     plt.plot(x_rectangle, y_rectangle2, color='orange')
-    plt.fill_between(x_rectangle, y_rectangle2, 0, color='orange')
+    plt.fill_between(x_rectangle, y_rectangle2, 0, color='orange', alpha=0.3)
 
     # Plot fonction analytique
     x = np.linspace(a, b, 1000)
     y_analytique = evaluation(liste, x)
     plt.plot(x, y_analytique)
+    plt.xlabel('x')
+    plt.ylabel('f(x)')
+    plt.title('Intégration par la méthode des rectangles')
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
     return 0
@@ -59,12 +64,17 @@ def affichage_trapeze(liste, a, b, n):
     y_trapeze = evaluation(liste, x_trapeze)
 
     plt.plot(x_trapeze, y_trapeze, color='orange')
-    plt.fill_between(x_trapeze, y_trapeze, 0, color='orange')
+    plt.fill_between(x_trapeze, y_trapeze, 0, color='orange', alpha=0.3)
 
     # Plot fonction analytique
     x_analytique = np.linspace(a, b, 1000)
     y_analytique = evaluation(liste, x_analytique)
     plt.plot(x_analytique, y_analytique)
+    plt.xlabel('x')
+    plt.ylabel('f(x)')
+    plt.title('Intégration par la méthode des Trapèzes')
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
     return 0
@@ -72,7 +82,8 @@ def affichage_trapeze(liste, a, b, n):
 
 def affichage_simpson(liste, a, b, n):
     if n % 2 != 0:
-        raise ValueError("Le nombre de sous-intervalles n doit être pair.")
+        print("Le nombre de sous-intervalles n doit être pair.")
+        return 12
 
     x = np.linspace(a, b, n + 1)
     y = evaluation(liste, x)
@@ -101,8 +112,7 @@ def affichage_simpson(liste, a, b, n):
     plt.legend()
     plt.grid(True)
     plt.show()
+    return 0
 
 
-# Exemple d'utilisation
-affichage_simpson([1, 2, 3, 4], 0, 10, 2)
-
+affichage_trapeze([1,2,3,4],0,10,4)
