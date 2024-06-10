@@ -20,6 +20,7 @@ from calculs import evaluation
                               #FONCTIONS#
 # -------------------------------------------------------------------------- #
 
+
 def methode_trapezes_python(P, a, b, nbre):
     integrale = 0 # variable qui contiendra la valeur de l'intégrale
 
@@ -32,6 +33,7 @@ def methode_trapezes_python(P, a, b, nbre):
         integrale += (x[i+1]-x[i])*((evaluation(P,x[i+1])+evaluation(P,x[i]))/2)
 
     return integrale, 0
+
 
 def methode_trapezes_numpy(P, a, b, nbre):
     # vecteur x abscisses
@@ -49,7 +51,7 @@ def methode_trapezes_numpy(P, a, b, nbre):
     return integrale, 0
 
 
-def methode_trapeze_existante(P, a, b, n):
+def methode_trapezes_existante(P, a, b, n):
     x = np.linspace(a, b, n + 1)
     y = evaluation(P, x)
-    return np.trapz(y)
+    return np.trapz(y), 0

@@ -1,4 +1,3 @@
-
 from timeit import timeit
 from calculs import integrale_analytique
 
