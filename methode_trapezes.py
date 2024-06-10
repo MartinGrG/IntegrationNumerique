@@ -30,12 +30,13 @@ def methode_trapezes_python(P, a, b, nbre):
 
     # On calcule l'aire de chacun des trapèzes et on les somme
     for i in range(len(x)-1):
-        integrale += (x[i+1]-x[i])*((evaluation(P,x[i+1])+evaluation(P,x[i]))/2)
+        integrale += (x[i+1]-x[i])*((evaluation(p,x[i+1])+evaluation(p,x[i]))/2)
 
     return integrale, 0
 
 
 def methode_trapezes_numpy(P, a, b, nbre):
+
     # vecteur x abscisses
     x = np.linspace(a, b, nbre+1)
 
@@ -50,3 +51,9 @@ def methode_trapezes_numpy(P, a, b, nbre):
     integrale = np.sum(calcul)
 
     return integrale, 0
+
+
+def methode_trapezes_existante(p, a, b, nbre):
+    x = np.linspace(a, b, nbre + 1)
+    y = evaluation(p, x)
+    return np.trapz(y), 0

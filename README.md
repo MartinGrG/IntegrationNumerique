@@ -1,2 +1,68 @@
-# SucréAuSucre
-Projet calcul intégral 
+# Objectif du code
+Ce code a pour objectif d'implémenter d'une part à la main, avec les éléments de base fournit par python, les méthodes d'intégration numériques suivantes : la méthode des rectangles, la méthode des trapèzes, la méthode de Simpson. Dans un deuxième temps nous les implmenterons à l'aide de numpy, en utilisant les ndarrays. Enfin ce code compare les versions de base et numpy avec les méthodes déjà implémenter dans numpy pour la méthode des trapèzes et dans scipy pour la méthode de Simpson.
+
+
+# Comment utiliser le code
+
+Pour pouvoir faire fonctionner le code correctement, il faut au préalable installer les package : 
+- numpy
+- scipy
+- matplotlib
+- timeit
+
+Ensuite selon les manipulation à faire, il est possible de comparer les fonctions deux à deux, analyser et appeler les fonctions dans le fichier main.py.
+
+
+# Stratégie adoptée pour la structure du code
+
+Le code est structuré en 7 fichiers : calculs.py, methode_rectangles.py, methode_trapezes.py, methode_simpson.py, affichage.py, analyse.py et main.py.
+
+Dans un premier temps les scripts calculs.py, methode_rectangles.py, methode_trapezes.py et methode_simpson.py ont été implémentées pour calculer les intégrales selon les méthodes proposées. Ensuite nous avons implémenté le script analyse.py afin de récupérer le temps de calcul des méthodes et leur erreur relative et de les comparer sur un graphique pour plusieurs segments.
+
+## calculs.py
+
+Ce script est composé de deus fonctions : 
+- evaluation(P, value) : permet de calculer la valeur du polynôme d'ordre 3 dont les coefficient sont indiqué dans P par degrés croissant, en value.
+- integrale_analytique(P, a, b) : permet de calculer l'intégrale du polynôme d'ordre 3 dont les coefficient sont indiqué dans P par degrés croissant, entre a et b (a < b).
+
+## methode_rectangles.py
+
+Ce script est composé de deux fonctions : 
+- methode_rectangle_python(liste, a, b, n) : permet de calculer l'intégrale du polynôme d'ordre 3 dont les coefficient sont indiqué dans liste par degrés croissant, entre a et b (a < b), en utilisant la méthode des rectangles. Dans ce cas l'intervalle [a, b] est discrétisé en n segemnts et on utilise les éléments de base présents dans python.
+- methode_rectangle_numpy(liste, a, b, n) : fait les mêmes calculs que la première fonction mais en utilisant les outils proposés par numpy comme les tableaux.
+
+## methode_trapezes.py
+
+Ce script est composé de trois fonctions : 
+- methode_trapezes_python(P, a, b, nbre) : permet de calculer l'intégrale du polynôme d'ordre 3 dont les coefficient sont indiqué dans P par degrés croissant, entre a et b (a < b), en utilisant la méthode des trapèzes. Dans ce cas l'intervalle [a, b] est discrétisé en nbre segemnts et on utilise les éléments de base présents dans python.
+- methode_trapezes_numpy(P, a, b, nbre) : fait les mêmes calculs que la première fonction mais en utilisant les outils proposés par numpy comme les tableaux.
+- methode_trapezes_existante(P, a, b, nbre) : fait les mêmes calculs que la première fonction mais en utilisant fonction impléémentée dans numpy : trapz.
+
+
+## methode_simpson.py
+
+Ce script est composé de trois fonctions : 
+- methode_simpson_python(P, a, b, nbre) : permet de calculer l'intégrale du polynôme d'ordre 3 dont les coefficient sont indiqué dans P par degrés croissant, entre a et b (a < b), en utilisant la méthode de Simpson. Dans ce cas l'intervalle [a, b] est discrétisé en nbre segemnts et on utilise les éléments de base présents dans python.
+- methode_simpson_numpy(P, a, b, nbre) : fait les mêmes calculs que la première fonction mais en utilisant les outils proposés par numpy comme les tableaux.
+- methode_simpson_existante(P, a, b, nbre) : fait les mêmes calculs que la première fonction mais en utilisant fonction impléémentée dans numpy : trapz.
+
+## analyse.py
+
+Ce script est composé de deux fonctions : 
+- analyse(nom_fct, P, a, b, nbre_seg) : Cette fonction permet de retourner le temps d'exécution, le resééultat et l'erreur du calcul de l'intégrale par nom_fct pour le mpolynôme dont les coefficients sont indiqué dans P par degrés croissant, entre a et b (a < b), en découpant l'intervalle en nbre_seg segments réguliers.
+- compare(nom_fct1, nom_fct2, P, a, b) : permet de regrouper dans un tableau le temps de calcul, le résultat et l'erreur relative du calcul de l'intégral par nom_fct1 et nom_fct2 sur l'intervalle [a, b] découpé de 11 manière différentes. Le tableau en sortie sera alors de dimension 2x3x12. Une des dimension et 12 et non 11 car le premier élément est le nom de la fonction, les 11 autres sont les triplets temps, résultat, erreur pour cette fonction sur les 11 découpages.
+
+
+## affichage.py
+
+Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'intégrale et leur temps de calcul sur deux graphiques différents.
+
+Pour ce faire il utilise d'abord deux fonctions pour récupérer le temps de calcul et l'erreur relative : 
+- recuperer_tps(liste_compare) : liste_compare est une liste renvoyer par la fonction compare implémentée dans analyse.py. La fonction retourne la liste des temps de calcul pour chaque fonction comparée.
+- recuperer_err(liste_compare) : liste_compare est une liste renvoyer par la fonction compare implémentée dans analyse.py. La fonction retourne la liste des erreurs relatives pour chaque fonction comparée.
+
+
+## main.py
+
+
+
