@@ -15,9 +15,6 @@ from calculs import *
 a = 0
 b = 100
 coef = [1,-200,-300,4]
-# Liste des différents découpages de l'intervalle,
-# à ne pas modifier sauf s'il est modifié dans analyse.py dans la fonction compare
-liste_nbre_seg = [i*(b-a) for i in range(1,11)]
 
 
 # TEMPS DE CALCUL
@@ -26,8 +23,9 @@ liste_nbre_seg = [i*(b-a) for i in range(1,11)]
 def tracer_tps_calcul_rectangles():
     rect_base_tps = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][0, 0, :]
     rect_numpy_tps = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 0, :]
+    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
     plt.plot(liste_nbre_seg, rect_base_tps, 'r-', label='Méthode des rectangles de base')
-    plt.plot(liste_nbre_seg, rect_numpy_tps, 'r--', label='Méthode des rectangles Numpy')
+    plt.plot(liste_nbre_seg, rect_numpy_tps, 'b--', label='Méthode des rectangles Numpy')
     plt.title('RECTANGLES : Tracé du temps de calcul en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
     plt.ylabel('Temps de calcul')
@@ -41,9 +39,10 @@ def tracer_tps_calcul_trapezes():
     trap_base_tps = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][0, 0, :]
     trap_numpy_tps = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 0, :]
     trap_existante_tps = compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b)[0][0, 0, :]
-    plt.plot(liste_nbre_seg, trap_base_tps, 'b-', label='Méthode des trapèzes de base')
+    liste_nbre_seg = compare(methode_trapezes_python, methode_trapezes_python, coef, a, b)[1]
+    plt.plot(liste_nbre_seg, trap_base_tps, 'r-', label='Méthode des trapèzes de base')
     plt.plot(liste_nbre_seg, trap_numpy_tps, 'b--', label='Méthode des trapèzes Numpy')
-    plt.plot(liste_nbre_seg, trap_existante_tps, 'b-.', label='Méthode des trapèzes existante')
+    plt.plot(liste_nbre_seg, trap_existante_tps, 'g-.', label='Méthode des trapèzes existante')
     # Affichage du titre, des légendes et du nom des axes
     plt.title('TRAPÈZES : Tracé du temps de calcul en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
@@ -58,8 +57,9 @@ def tracer_tps_calcul_simpson():
     simp_base_tps = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][0, 0, :]
     simp_numpy_tps = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 0, :]
     simp_existante_tps = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[0][0, 0, :]
-    plt.plot(liste_nbre_seg, simp_base_tps, 'g-', label='Méthode Simpson de base')
-    plt.plot(liste_nbre_seg, simp_numpy_tps, 'g--', label='Méthode Simpson Numpy')
+    liste_nbre_seg = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[1]
+    plt.plot(liste_nbre_seg, simp_base_tps, 'r-', label='Méthode Simpson de base')
+    plt.plot(liste_nbre_seg, simp_numpy_tps, 'b--', label='Méthode Simpson Numpy')
     plt.plot(liste_nbre_seg, simp_existante_tps, 'g-.', label='Méthode Simpson existante')
     # Affichage du titre, des légendes et du nom des axes
     plt.title('SIMPSON : Tracé du temps de calcul en fonction du nombre de segments')
@@ -77,8 +77,9 @@ def tracer_tps_calcul_simpson():
 def tracer_err_rectangle():
     rect_base_err= compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][0, 2, :]
     rect_numpy_err = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 2, :]
+    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
     plt.plot(liste_nbre_seg, rect_base_err, 'r-', label='Méthode des rectangles de base')
-    plt.plot(liste_nbre_seg, rect_numpy_err, 'r--', label='Méthode des rectangles Numpy')
+    plt.plot(liste_nbre_seg, rect_numpy_err, 'b--', label='Méthode des rectangles Numpy')
     # Affichage du titre, des légendes et du nom des axes
     plt.title('RECTANGLES : Tracé des erreurs relatives en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
@@ -93,9 +94,10 @@ def tracer_err_trapeze():
     trap_base_err = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][0, 2, :]
     trap_numpy_err = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 2, :]
     trap_existante_err = compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b)[0][0, 2, :]
-    plt.plot(liste_nbre_seg, trap_base_err, 'b-', label='Méthode des trapèzes de base')
+    liste_nbre_seg = compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b)[1]
+    plt.plot(liste_nbre_seg, trap_base_err, 'r-', label='Méthode des trapèzes de base')
     plt.plot(liste_nbre_seg, trap_numpy_err, 'b--', label='Méthode des trapèzes Numpy')
-    plt.plot(liste_nbre_seg, trap_existante_err, 'b-.', label='Méthode des trapèzes existante')
+    plt.plot(liste_nbre_seg, trap_existante_err, 'g-.', label='Méthode des trapèzes existante')
     # Affichage du titre, des légendes et du nom des axes
     plt.title('TRAPÈZES : Tracé des erreurs relatives en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
@@ -110,8 +112,9 @@ def tracer_err_simpson():
     simp_base_err = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][0, 2, :]
     simp_numpy_err = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 2, :]
     simp_existante_err = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[0][0, 2, :]
-    plt.plot(liste_nbre_seg, simp_base_err, 'g-', label='Méthode Simpson de base')
-    plt.plot(liste_nbre_seg, simp_numpy_err, 'g--', label='Méthode Simpson Numpy')
+    liste_nbre_seg = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[1]
+    plt.plot(liste_nbre_seg, simp_base_err, 'r-', label='Méthode Simpson de base')
+    plt.plot(liste_nbre_seg, simp_numpy_err, 'b--', label='Méthode Simpson Numpy')
     plt.plot(liste_nbre_seg, simp_existante_err, 'g-.', label='Méthode Simpson existante')
     # Affichage du titre, des légendes et du nom des axes
     plt.title('SIMPSON : Tracé des erreurs relatives en fonction du nombre de segments')
