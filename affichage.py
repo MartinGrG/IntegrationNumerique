@@ -1,3 +1,6 @@
+"""Ce script permet d'afficher le temps de calcul et l'erreur relative sur un graphique
+pour chaque fonction de calcul d'intégrale"""
+
 import matplotlib.pyplot as plt
 from analyse import *
 from methode_rectangles import *
@@ -5,13 +8,19 @@ from methode_trapezes import *
 from methode_simpson import *
 
 
+# Définition des paramètres : a et b les bornes de l'intervalle a < b,
+# liste_coefficient : la liste des coefficients du polynôme de degrés 3
 a = 0
 b = 10
 coef = [1, 2, 3, 4]
+# Liste des différents découpages de l'intervalle,
+# à ne pas modifier sauf s'il est modifié dans analyse.py dans la fonction compare
+liste_nbre_seg = [i*(b-a) for i in range(1,12)]
 
 
+# Définition des fonctions pour récupérer les temps de calcul et les erreurs relatives
 def recuperer_tps(liste_compare):
-    """Cette fonction permet d'extraire les temps de réponse du renvoi de la fonction compare
+    """Cette fonction permet d'extraire les temps de calcul de la fonction compare
     pour les 2 fonctions comparées"""
     liste_tps_fct1 = []
     liste_tps_fct2 = []
@@ -32,14 +41,15 @@ def recuperer_err(liste_compare):
     return liste_err_fct1, liste_err_fct2
 
 
-# Tracé temps de réponse de chaque méthode
-liste_nbre_seg = [i*(b-a) for i in range(1,12)]
+# TEMPS DE RÉPONSE
+# Récupération des temps de calcul pour chaque méthode
 rect_base_tps, rect_numpy_tps = recuperer_tps(compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b))
 trap_base_tps, trap_numpy_tps = recuperer_tps(compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b))
 trap_existante_tps = recuperer_tps(compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b))[0]
 simp_base_tps, simp_numpy_tps = recuperer_tps(compare(methode_simpson_python, methode_simpson_numpy, coef, a, b))
 simp_existante_tps = recuperer_tps(compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b))[0]
 
+# Tracé temps de calcul de chaque méthode
 plt.plot(liste_nbre_seg, rect_base_tps, 'r-', label='Méthode des rectangles de base')
 plt.plot(liste_nbre_seg, rect_numpy_tps, 'r--', label='Méthode des rectangles Numpy')
 plt.plot(liste_nbre_seg, trap_base_tps, 'b-', label='Méthode des trapèzes de base')
@@ -49,21 +59,25 @@ plt.plot(liste_nbre_seg, simp_base_tps, 'g-', label='Méthode Simpson de base')
 plt.plot(liste_nbre_seg, simp_numpy_tps, 'g--', label='Méthode Simpson Numpy')
 plt.plot(liste_nbre_seg, simp_existante_tps, 'g-.', label='Méthode Simpson existante')
 
+# Affichage du titre, des légendes et du nom des axes
 plt.title('Tracé du temps de calcul en fonction du nombre de segments')
 plt.xlabel('Nombre de segments')
 plt.ylabel('Temps de réponse')
 plt.legend()
 
+# Affichage du graphique
 plt.show()
 
 
-# Tracé de l'erreur de chaque méthode
+# ERREURS RELATIVES
+# Récupération des erreurs relatives pour chaque méthode
 rect_base_err, rect_numpy_err = recuperer_err(compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b))
 trap_base_err, trap_numpy_err = recuperer_err(compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b))
 trap_existante_err = recuperer_err(compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b))[0]
 simp_base_err, simp_numpy_err = recuperer_err(compare(methode_simpson_python, methode_simpson_numpy, coef, a, b))
 simp_existante_err = recuperer_err(compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b))[0]
 
+# Tracé de l'erreur de chaque méthode
 plt.plot(liste_nbre_seg, rect_base_err, 'r-', label='Méthode des rectangles de base')
 plt.plot(liste_nbre_seg, rect_numpy_err, 'r--', label='Méthode des rectangles Numpy')
 plt.plot(liste_nbre_seg, trap_base_err, 'b-', label='Méthode des trapèzes de base')
@@ -73,11 +87,13 @@ plt.plot(liste_nbre_seg, simp_base_err, 'g-', label='Méthode Simpson de base')
 plt.plot(liste_nbre_seg, simp_numpy_err, 'g--', label='Méthode Simpson Numpy')
 plt.plot(liste_nbre_seg, simp_existante_err, 'g-.', label='Méthode Simpson existante')
 
+# Affichage du titre, des légendes et du nom des axes
 plt.title('Tracé des erreurs relatives en fonction du nombre de segments')
 plt.xlabel('Nombre de segments')
 plt.ylabel('Erreur relative')
 plt.legend()
 
+# Affichage du graphique
 plt.show()
 
 
