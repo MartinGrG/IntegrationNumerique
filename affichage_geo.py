@@ -135,4 +135,3 @@ def affichage_simpson(liste, a, b, n):
     return 0
 
 
-affichage_rectangle([1, -10, 20, -4], 0, 10, 8)
