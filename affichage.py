@@ -21,9 +21,10 @@ coef = [1,-200,-300,4]
 # Tracé temps de calcul de chaque méthode
 # RECTANGLES
 def tracer_tps_calcul_rectangles():
-    rect_base_tps = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][0, 0, :]
-    rect_numpy_tps = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 0, :]
-    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
+    comparaison = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
+    rect_base_tps = comparaison[0][0, 0, :]
+    rect_numpy_tps = comparaison[0][1, 0, :]
+    liste_nbre_seg = comparaison[1]
     plt.plot(liste_nbre_seg, rect_base_tps, 'r-', label='Méthode des rectangles de base')
     plt.plot(liste_nbre_seg, rect_numpy_tps, 'b--', label='Méthode des rectangles Numpy')
     plt.title('RECTANGLES : Tracé du temps de calcul en fonction du nombre de segments')
@@ -36,10 +37,11 @@ def tracer_tps_calcul_rectangles():
 
 # TRAPÈZES
 def tracer_tps_calcul_trapezes():
-    trap_base_tps = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][0, 0, :]
-    trap_numpy_tps = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 0, :]
+    comparaison = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)
+    trap_base_tps = comparaison[0][0, 0, :]
+    trap_numpy_tps = comparaison[0][1, 0, :]
     trap_existante_tps = compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b)[0][0, 0, :]
-    liste_nbre_seg = compare(methode_trapezes_python, methode_trapezes_python, coef, a, b)[1]
+    liste_nbre_seg = comparaison[1]
     plt.plot(liste_nbre_seg, trap_base_tps, 'r-', label='Méthode des trapèzes de base')
     plt.plot(liste_nbre_seg, trap_numpy_tps, 'b--', label='Méthode des trapèzes Numpy')
     plt.plot(liste_nbre_seg, trap_existante_tps, 'g-.', label='Méthode des trapèzes existante')
@@ -54,10 +56,11 @@ def tracer_tps_calcul_trapezes():
 
 # SIMPSON
 def tracer_tps_calcul_simpson():
-    simp_base_tps = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][0, 0, :]
-    simp_numpy_tps = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 0, :]
+    comparaison = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)
+    simp_base_tps = comparaison[0][0, 0, :]
+    simp_numpy_tps = comparaison[0][1, 0, :]
     simp_existante_tps = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[0][0, 0, :]
-    liste_nbre_seg = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[1]
+    liste_nbre_seg = comparaison[1]
     plt.plot(liste_nbre_seg, simp_base_tps, 'r-', label='Méthode Simpson de base')
     plt.plot(liste_nbre_seg, simp_numpy_tps, 'b--', label='Méthode Simpson Numpy')
     plt.plot(liste_nbre_seg, simp_existante_tps, 'g-.', label='Méthode Simpson existante')
@@ -75,9 +78,10 @@ def tracer_tps_calcul_simpson():
 # Tracé de l'erreur de chaque méthode
 # RECTANGLES
 def tracer_err_rectangle():
-    rect_base_err= compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][0, 2, :]
-    rect_numpy_err = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 2, :]
-    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
+    comparaison = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
+    rect_base_err = comparaison[0][0, 2, :]
+    rect_numpy_err = comparaison[0][1, 2, :]
+    liste_nbre_seg = comparaison[1]
     plt.plot(liste_nbre_seg, rect_base_err, 'r-', label='Méthode des rectangles de base')
     plt.plot(liste_nbre_seg, rect_numpy_err, 'b--', label='Méthode des rectangles Numpy')
     # Affichage du titre, des légendes et du nom des axes
@@ -91,10 +95,11 @@ def tracer_err_rectangle():
 
 # TRAPÈZES
 def tracer_err_trapeze():
-    trap_base_err = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][0, 2, :]
-    trap_numpy_err = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 2, :]
+    comparaison = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)
+    trap_base_err = comparaison[0][0, 2, :]
+    trap_numpy_err = comparaison[0][1, 2, :]
     trap_existante_err = compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b)[0][0, 2, :]
-    liste_nbre_seg = compare(methode_trapezes_existante, methode_trapezes_numpy, coef, a, b)[1]
+    liste_nbre_seg = comparaison[1]
     plt.plot(liste_nbre_seg, trap_base_err, 'r-', label='Méthode des trapèzes de base')
     plt.plot(liste_nbre_seg, trap_numpy_err, 'b--', label='Méthode des trapèzes Numpy')
     plt.plot(liste_nbre_seg, trap_existante_err, 'g-.', label='Méthode des trapèzes existante')
@@ -109,10 +114,11 @@ def tracer_err_trapeze():
 
 # SIMPSON
 def tracer_err_simpson():
-    simp_base_err = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][0, 2, :]
-    simp_numpy_err = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 2, :]
+    comparaison = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)
+    simp_base_err = comparaison[0][0, 2, :]
+    simp_numpy_err = comparaison[0][1, 2, :]
     simp_existante_err = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[0][0, 2, :]
-    liste_nbre_seg = compare(methode_simpson_existante, methode_simpson_numpy, coef, a, b)[1]
+    liste_nbre_seg = comparaison[1]
     plt.plot(liste_nbre_seg, simp_base_err, 'r-', label='Méthode Simpson de base')
     plt.plot(liste_nbre_seg, simp_numpy_err, 'b--', label='Méthode Simpson Numpy')
     plt.plot(liste_nbre_seg, simp_existante_err, 'g-.', label='Méthode Simpson existante')
@@ -125,11 +131,28 @@ def tracer_err_simpson():
     plt.show()
 
 
-def tracer_tps_calcul_numpy():
-    rect_numpy_tps = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 0, :]
-    trap_numpy_tps = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 0, :]
-    simp_numpy_tps = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 0, :]
-    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
+def tracer_tps_calcul_numpy_python():
+    comparaison_rect = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
+    comparaison_trap = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)
+    comparaison_simp = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)
+    liste_nbre_seg = comparaison_rect[1]
+    # Affichage python
+    rect_python_tps = comparaison_rect[0][0, 0, :]
+    trap_python_tps = comparaison_trap[0][0, 0, :]
+    simp_python_tps = comparaison_simp[0][0, 0, :]
+    plt.plot(liste_nbre_seg, rect_python_tps, 'r-', label='Méthode des rectangles')
+    plt.plot(liste_nbre_seg, trap_python_tps, 'g-', label='Méthode des trapèzes')
+    plt.plot(liste_nbre_seg, simp_python_tps, 'b-', label='Méthode Simpson')
+    plt.title('BASE : Tracé du temps de calcul en fonction du nombre de segments')
+    plt.xlabel('Nombre de segments')
+    plt.ylabel('Temps de calcul')
+    plt.legend()
+    # Affichage du graphique
+    plt.show()
+    # Affichage numpy
+    rect_numpy_tps = comparaison_rect[0][1, 0, :]
+    trap_numpy_tps = comparaison_trap[0][1, 0, :]
+    simp_numpy_tps = comparaison_simp[0][1, 0, :]
     plt.plot(liste_nbre_seg, rect_numpy_tps, 'r-', label='Méthode des rectangles')
     plt.plot(liste_nbre_seg, trap_numpy_tps, 'g-', label='Méthode des trapèzes')
     plt.plot(liste_nbre_seg, simp_numpy_tps, 'b-', label='Méthode Simpson')
@@ -141,17 +164,34 @@ def tracer_tps_calcul_numpy():
     plt.show()
 
 
-def tracer_err_numpy():
-    rect_numpy_err = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 2, :]
-    trap_numpy_err = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 2, :]
-    simp_numpy_err = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 2, :]
-    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
+def tracer_err_numpy_python():
+    comparaison_rect = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
+    comparaison_trap = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)
+    comparaison_simp = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)
+    liste_nbre_seg = comparaison_rect[1]
+    # Affichage python
+    rect_python_err = comparaison_rect[0][0, 2, :]
+    trap_python_err = comparaison_trap[0][0, 2, :]
+    simp_python_err = comparaison_simp[0][0, 2, :]
+    plt.plot(liste_nbre_seg, rect_python_err, 'r-', label='Méthode des rectangles')
+    plt.plot(liste_nbre_seg, trap_python_err, 'g-', label='Méthode des trapèzes')
+    plt.plot(liste_nbre_seg, simp_python_err, 'b-', label='Méthode Simpson')
+    plt.title('BASE : Tracé du temps de calcul en fonction du nombre de segments')
+    plt.xlabel('Nombre de segments')
+    plt.ylabel('Temps de calcul')
+    plt.legend()
+    # Affichage du graphique
+    plt.show()
+    # Affichage numpy
+    rect_numpy_err = comparaison_rect[0][1, 2, :]
+    trap_numpy_err = comparaison_trap[0][1, 2, :]
+    simp_numpy_err = comparaison_simp[0][1, 2, :]
     plt.plot(liste_nbre_seg, rect_numpy_err, 'r-', label='Méthode des rectangles')
     plt.plot(liste_nbre_seg, trap_numpy_err, 'g-', label='Méthode des trapèzes')
     plt.plot(liste_nbre_seg, simp_numpy_err, 'b-', label='Méthode Simpson')
-    plt.title('NUMPY : Tracé des erreurs relatives en fonction du nombre de segments')
+    plt.title('NUMPY : Tracé du temps de calcul en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
-    plt.ylabel('Erreur relative')
+    plt.ylabel('Temps de calcul')
     plt.legend()
     # Affichage du graphique
     plt.show()
@@ -164,8 +204,8 @@ def tracer_err_numpy():
 # tracer_err_trapeze()
 # tracer_err_simpson()
 
-tracer_tps_calcul_numpy()
-tracer_err_numpy()
+tracer_tps_calcul_numpy_python()
+tracer_err_numpy_python()
 
 
 print((methode_trapezes_existante(coef, a, b, 100)[0] -
