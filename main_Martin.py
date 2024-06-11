@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from affichage_geo import *
 
-P = [1,-200,300,4]
+P = [1,-200,-300,4]
 a = 0
 b = 100
 n1 = 10
