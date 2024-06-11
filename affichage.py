@@ -206,7 +206,3 @@ tracer_err_simpson()
 
 tracer_tps_calcul_numpy_python()
 tracer_err_numpy_python()
-
-
-print((methode_trapezes_existante(coef, a, b, 100)[0] -
-       integrale_analytique(coef, a, b))/integrale_analytique(coef, a, b) * 100)
