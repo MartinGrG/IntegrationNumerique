@@ -145,7 +145,7 @@ def tracer_tps_calcul_numpy_python():
     plt.plot(liste_nbre_seg, simp_python_tps, 'b-', label='Méthode Simpson')
     plt.title('BASE : Tracé du temps de calcul en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
-    plt.ylabel('Temps de calcul')
+    plt.ylabel('Temps de calcul (sec)')
     plt.legend()
     # Affichage du graphique
     plt.show()
@@ -158,7 +158,7 @@ def tracer_tps_calcul_numpy_python():
     plt.plot(liste_nbre_seg, simp_numpy_tps, 'b-', label='Méthode Simpson')
     plt.title('NUMPY : Tracé du temps de calcul en fonction du nombre de segments')
     plt.xlabel('Nombre de segments')
-    plt.ylabel('Temps de calcul')
+    plt.ylabel('Temps de calcul (sec)')
     plt.legend()
     # Affichage du graphique
     plt.show()
@@ -176,9 +176,9 @@ def tracer_err_numpy_python():
     plt.plot(liste_nbre_seg, rect_python_err, 'r-', label='Méthode des rectangles')
     plt.plot(liste_nbre_seg, trap_python_err, 'g-', label='Méthode des trapèzes')
     plt.plot(liste_nbre_seg, simp_python_err, 'b-', label='Méthode Simpson')
-    plt.title('BASE : Tracé du temps de calcul en fonction du nombre de segments')
+    plt.title("BASE : Tracé de l'erreur relative en fonction du nombre de segments")
     plt.xlabel('Nombre de segments')
-    plt.ylabel('Temps de calcul')
+    plt.ylabel('Erreur relative [%]')
     plt.legend()
     # Affichage du graphique
     plt.show()
@@ -189,24 +189,20 @@ def tracer_err_numpy_python():
     plt.plot(liste_nbre_seg, rect_numpy_err, 'r-', label='Méthode des rectangles')
     plt.plot(liste_nbre_seg, trap_numpy_err, 'g-', label='Méthode des trapèzes')
     plt.plot(liste_nbre_seg, simp_numpy_err, 'b-', label='Méthode Simpson')
-    plt.title('NUMPY : Tracé du temps de calcul en fonction du nombre de segments')
+    plt.title("NUMPY : Tracé de l'erreur relative en fonction du nombre de segments")
     plt.xlabel('Nombre de segments')
-    plt.ylabel('Temps de calcul')
+    plt.ylabel('Erreur relative [%]')
     plt.legend()
     # Affichage du graphique
     plt.show()
 
 
-# tracer_tps_calcul_rectangles()
-# tracer_tps_calcul_trapezes()
-# tracer_tps_calcul_simpson()
-# tracer_err_rectangle()
-# tracer_err_trapeze()
-# tracer_err_simpson()
+tracer_tps_calcul_rectangles()
+tracer_tps_calcul_trapezes()
+tracer_tps_calcul_simpson()
+tracer_err_rectangle()
+tracer_err_trapeze()
+tracer_err_simpson()
 
 tracer_tps_calcul_numpy_python()
 tracer_err_numpy_python()
-
-
-print((methode_trapezes_existante(coef, a, b, 100)[0] -
-       integrale_analytique(coef, a, b))/integrale_analytique(coef, a, b) * 100)

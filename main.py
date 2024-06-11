@@ -1,11 +1,9 @@
-from analyse import *
-from methode_trapezes import *
-from methode_rectangles import *
-from methode_simpson import *
+# Pour lancer les affichages de la géométrie des méthodes :
+#           - Lancer main_Martin
 
+# Pour lancer les affichages comparatifs entre les méthodes :
+#           - Lancer affichage
 
-resultat_comp = compare(methode_trapezes_python, methode_trapezes_numpy, [1,2,3,4], 0 , 10)
-print(resultat_comp[0,1,:])
-print("\n")
-print(resultat_comp[0,:,:])
-
+# Pour lancer les affichages 3D qui compare nombre de segments,
+# temps de calcul et erreur relative :
+#           - Lancer affichage_3d
