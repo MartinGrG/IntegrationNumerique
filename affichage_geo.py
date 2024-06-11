@@ -65,9 +65,8 @@ def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectang
     plt.title('Intégration par la méthode des rectangles')
     plt.legend()
     plt.grid(True)
-    plt.show()
 
-    return 0
+    return plt
 
 def affichage_trapeze(liste, a, b, n):
     # Plot fonction analytique
@@ -90,9 +89,8 @@ def affichage_trapeze(liste, a, b, n):
     plt.title('Intégration par la méthode des Trapèzes')
     plt.legend()
     plt.grid(True)
-    plt.show()
 
-    return 0
+    return plt
 
 
 def affichage_simpson(liste, a, b, n):
@@ -140,4 +138,5 @@ def affichage_simpson(liste, a, b, n):
     plt.legend()
     plt.grid(True)
     plt.show()
-    return 0
+    return plt
+
