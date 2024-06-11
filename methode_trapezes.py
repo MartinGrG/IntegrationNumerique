@@ -56,5 +56,5 @@ def methode_trapezes_numpy(P, a, b, nbre):
 def methode_trapezes_existante(p, a, b, nbre):
     x = np.linspace(a, b, nbre + 1)
     y = evaluation(p, x)
-    return np.trapz(y), 0
+    return np.trapz(y,x), 0
 

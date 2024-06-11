@@ -31,4 +31,4 @@ def methode_simpson_numpy(p, a, b, nbre):
 def methode_simpson_existante(p, a, b, nbre):
     x = np.linspace(a, b, nbre + 1)
     y = evaluation(p, x)
-    return sp.integrate.simpson(y), 0
+    return sp.integrate.simpson(y,x=x), 0
