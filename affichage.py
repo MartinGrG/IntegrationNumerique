@@ -197,12 +197,12 @@ def tracer_err_numpy_python():
     plt.show()
 
 
-# tracer_tps_calcul_rectangles()
-# tracer_tps_calcul_trapezes()
-# tracer_tps_calcul_simpson()
-# tracer_err_rectangle()
-# tracer_err_trapeze()
-# tracer_err_simpson()
+tracer_tps_calcul_rectangles()
+tracer_tps_calcul_trapezes()
+tracer_tps_calcul_simpson()
+tracer_err_rectangle()
+tracer_err_trapeze()
+tracer_err_simpson()
 
 tracer_tps_calcul_numpy_python()
 tracer_err_numpy_python()
