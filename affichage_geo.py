@@ -62,7 +62,7 @@ def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectang
 
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.title('Intégration par la méthode des rectangles')
+    plt.title(f'Intégration par la méthode des rectangles (n={n})')
     plt.legend()
     plt.grid(True)
 
@@ -86,7 +86,7 @@ def affichage_trapeze(liste, a, b, n):
 
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.title('Intégration par la méthode des Trapèzes')
+    plt.title(f'Intégration par la méthode des trapèzes (n={n})')
     plt.legend()
     plt.grid(True)
 
@@ -134,7 +134,7 @@ def affichage_simpson(liste, a, b, n):
     # Configurer le graphique
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.title('Intégration par la méthode de Simpson')
+    plt.title(f'Intégration par la méthode de Simpson (n={n})')
     plt.legend()
     plt.grid(True)
     plt.show()
