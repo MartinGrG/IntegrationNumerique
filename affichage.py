@@ -125,14 +125,48 @@ def tracer_err_simpson():
     plt.show()
 
 
-tracer_tps_calcul_rectangles()
-tracer_tps_calcul_trapezes()
-tracer_tps_calcul_simpson()
-tracer_err_rectangle()
-tracer_err_trapeze()
-tracer_err_simpson()
+def tracer_tps_calcul_numpy():
+    rect_numpy_tps = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 0, :]
+    trap_numpy_tps = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 0, :]
+    simp_numpy_tps = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 0, :]
+    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
+    plt.plot(liste_nbre_seg, rect_numpy_tps, 'r-', label='Méthode des rectangles')
+    plt.plot(liste_nbre_seg, trap_numpy_tps, 'g-', label='Méthode des trapèzes')
+    plt.plot(liste_nbre_seg, simp_numpy_tps, 'b-', label='Méthode Simpson')
+    plt.title('NUMPY : Tracé du temps de calcul en fonction du nombre de segments')
+    plt.xlabel('Nombre de segments')
+    plt.ylabel('Temps de calcul')
+    plt.legend()
+    # Affichage du graphique
+    plt.show()
 
-# print(methode_trapezes_existante(coef, a, b, 100))
-# print(methode_simpson_existante(coef, a, b, 100))
-# print(integrale_analytique(coef, a, b))
 
+def tracer_err_numpy():
+    rect_numpy_err = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[0][1, 2, :]
+    trap_numpy_err = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)[0][1, 2, :]
+    simp_numpy_err = compare(methode_simpson_python, methode_simpson_numpy, coef, a, b)[0][1, 2, :]
+    liste_nbre_seg = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)[1]
+    plt.plot(liste_nbre_seg, rect_numpy_err, 'r-', label='Méthode des rectangles')
+    plt.plot(liste_nbre_seg, trap_numpy_err, 'g-', label='Méthode des trapèzes')
+    plt.plot(liste_nbre_seg, simp_numpy_err, 'b-', label='Méthode Simpson')
+    plt.title('NUMPY : Tracé des erreurs relatives en fonction du nombre de segments')
+    plt.xlabel('Nombre de segments')
+    plt.ylabel('Erreur relative')
+    plt.legend()
+    # Affichage du graphique
+    plt.show()
+
+
+# tracer_tps_calcul_rectangles()
+# tracer_tps_calcul_trapezes()
+# tracer_tps_calcul_simpson()
+# tracer_err_rectangle()
+# tracer_err_trapeze()
+# tracer_err_simpson()
+
+tracer_tps_calcul_numpy()
+tracer_err_numpy()
+
+
+print((methode_trapezes_existante(coef, a, b, 100)[0] -
+       integrale_analytique(coef, a, b))/integrale_analytique(coef, a, b) * 100)
