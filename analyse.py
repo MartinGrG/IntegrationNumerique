@@ -19,7 +19,7 @@ from calculs import integrale_analytique
 #           - valeur de l'erreur relative sur le résultat
 def analyse(nom_fct, P, a, b, nbre_seg):
     # Obtention du temps de calcul
-    time = timeit(lambda: nom_fct(P, a, b, nbre_seg), number=1)
+    time = timeit(lambda: nom_fct(P, a, b, nbre_seg), number=500)/500
     # Obtention du résultat d'intégration numérique
     resultat = nom_fct(P, a, b, nbre_seg)[0]
     # Calcul de l'erreur relative à la valeur analytique
