@@ -22,8 +22,14 @@ n = 4
 
 
 def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectangles
-    x_rectangle1 = np.linspace(a, b, n + 1)
 
+    # Plot fonction analytique
+    x_analytique = np.linspace(a, b, 1000)
+    y_analytique = evaluation(liste, x_analytique)
+    plt.plot(x_analytique, y_analytique, label=f'f(x) = {liste[0]} + {liste[1]}x + {liste[2]}x^2 + {liste[3]}x^3', color= 'blue')
+
+
+    x_rectangle1 = np.linspace(a, b, n + 1)
     y_rectangle = methode_rectangle_numpy(liste, a, b, n)[1]
     pas = b - a / n
 
@@ -44,47 +50,47 @@ def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectang
         j += 1
 
     plt.plot(x_rectangle, y_rectangle2, color='orange')
-    plt.fill_between(x_rectangle, y_rectangle2, 0, color='orange', alpha=0.3)
+    plt.fill_between(x_rectangle, y_rectangle2, 0, color='orange', alpha=0.3, label='Approximation de l\'aire')
+
+    # Ajouter des points
+    plt.scatter(x_rectangle, y_rectangle2, color='red', s=10)
 
     x_segment = x_rectangle[2::]
     y_segment = y_rectangle2[2::]
     plt.vlines(x_segment, 0, y_segment, colors='orange', linewidth=1)
 
-    # Plot fonction analytique
-    x = np.linspace(a, b, 1000)
-    y_analytique = evaluation(liste, x)
-    plt.plot(x, y_analytique)
+
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.title('Intégration par la méthode des rectangles')
+    plt.title(f'Intégration par la méthode des rectangles (n={n})')
     plt.legend()
     plt.grid(True)
-    plt.show()
 
-    return 0
+    return plt
 
 def affichage_trapeze(liste, a, b, n):
+    # Plot fonction analytique
+    x_analytique = np.linspace(a, b, 1000)
+    y_analytique = evaluation(liste, x_analytique)
+    plt.plot(x_analytique, y_analytique, label=f'f(x) = {liste[0]} + {liste[1]}x + {liste[2]}x^2 + {liste[3]}x^3',color= 'blue')
+
     x_trapeze = np.linspace(a, b, n + 1)
     y_trapeze = evaluation(liste, x_trapeze)
 
     plt.plot(x_trapeze, y_trapeze, color='orange')
-    plt.fill_between(x_trapeze, y_trapeze, 0, color='orange', alpha=0.3)
+    plt.fill_between(x_trapeze, y_trapeze, 0, color='orange', alpha=0.3, label='Approximation de l\'aire')
     plt.vlines(x_trapeze, 0, y_trapeze, colors='orange', linewidth=1)
 
-    plt.scatter(x_trapeze, y_trapeze, color='red', s=15)
+    plt.scatter(x_trapeze, y_trapeze, color='red', s=10)
 
-    # Plot fonction analytique
-    x_analytique = np.linspace(a, b, 1000)
-    y_analytique = evaluation(liste, x_analytique)
-    plt.plot(x_analytique, y_analytique)
+
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.title('Intégration par la méthode des Trapèzes')
+    plt.title(f'Intégration par la méthode des trapèzes (n={n})')
     plt.legend()
     plt.grid(True)
-    plt.show()
 
-    return 0
+    return plt
 
 
 def affichage_simpson(liste, a, b, n):
@@ -116,10 +122,10 @@ def affichage_simpson(liste, a, b, n):
     y_simpson = np.concatenate(y_simpson)
 
     plt.plot(x_simpson, y_simpson, color='orange')
-    plt.fill_between(x_simpson, 0, y_simpson, color='orange', alpha=0.3, label='Approximation de l\'aire' if i == 0 else "")
+    plt.fill_between(x_simpson, 0, y_simpson, color='orange', alpha=0.3, label='Approximation de l\'aire')
 
     # Ajouter des points
-    plt.scatter(x, y, color='red', s=15)
+    plt.scatter(x, y, color='red', s=10)
 
     x_segment = x[::2]
     y_segment = y[::2]
@@ -128,10 +134,9 @@ def affichage_simpson(liste, a, b, n):
     # Configurer le graphique
     plt.xlabel('x')
     plt.ylabel('f(x)')
-    plt.title('Intégration par la méthode de Simpson')
+    plt.title(f'Intégration par la méthode de Simpson (n={n})')
     plt.legend()
     plt.grid(True)
     plt.show()
-    return 0
-
+    return plt
 
