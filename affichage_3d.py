@@ -15,6 +15,8 @@ coef = [1,-200,-300,4]
 # Créez une figure et un subplot 3D
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
+
+# Cette procedure permet de créer les vecteurs X et Y pour le tracé
 def affichage_convergence_base(nom):
     comparaison = compare(methode_simpson_python, nom, coef, a, b)
     methode_tps = comparaison[0][1, 0, :]
@@ -32,6 +34,7 @@ def affichage_convergence_base(nom):
                  "le temps de calcul et l'erreur relative\npour les 3 méthodes en python")
     # Affichez le graphique
 
+# Cette procédure permet d'afficher les tracés sur le même graphe.
 def trace(nom):
 
     if nom =="python":

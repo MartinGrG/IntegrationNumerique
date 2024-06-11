@@ -18,7 +18,7 @@ coef = [1,-200,-300,4]
 
 
 # TEMPS DE CALCUL
-# Tracé temps de calcul de chaque méthode
+# Tracé temps de calcul en fonction du nombre de segments de chaque méthode
 # RECTANGLES
 def tracer_tps_calcul_rectangles():
     comparaison = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
@@ -75,7 +75,7 @@ def tracer_tps_calcul_simpson():
 
 
 # ERREURS RELATIVES
-# Tracé de l'erreur de chaque méthode
+# Tracé de l'erreur en fonction du nombre de segments de chaque méthode
 # RECTANGLES
 def tracer_err_rectangle():
     comparaison = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
@@ -131,6 +131,8 @@ def tracer_err_simpson():
     plt.show()
 
 
+# TEMPS CALCUL
+# Tracé du temps en fonction du nombre de segments pour comparer numpy et python
 def tracer_tps_calcul_numpy_python():
     comparaison_rect = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
     comparaison_trap = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)
@@ -163,7 +165,8 @@ def tracer_tps_calcul_numpy_python():
     # Affichage du graphique
     plt.show()
 
-
+# ERREUR RELATIVE
+# Tracé de l'erreur en fonction du nombre de segments pour comparer numpy et python
 def tracer_err_numpy_python():
     comparaison_rect = compare(methode_rectangle_python, methode_rectangle_numpy, coef, a, b)
     comparaison_trap = compare(methode_trapezes_python, methode_trapezes_numpy, coef, a, b)
@@ -196,7 +199,7 @@ def tracer_err_numpy_python():
     # Affichage du graphique
     plt.show()
 
-
+# Tracer les graphes :
 tracer_tps_calcul_rectangles()
 tracer_tps_calcul_trapezes()
 tracer_tps_calcul_simpson()
