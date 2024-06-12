@@ -48,18 +48,14 @@ Ce script est composé de trois fonctions :
 
 ## analyse.py
 
-Ce script est composé de deux fonctions : 
-- analyse(nom_fct, P, a, b, nbre_seg) : Cette fonction permet de retourner le temps d'exécution, le resééultat et l'erreur du calcul de l'intégrale par nom_fct pour le mpolynôme dont les coefficients sont indiqué dans P par degrés croissant, entre a et b (a < b), en découpant l'intervalle en nbre_seg segments réguliers.
-- compare(nom_fct1, nom_fct2, P, a, b) : permet de regrouper dans un tableau le temps de calcul, le résultat et l'erreur relative du calcul de l'intégral par nom_fct1 et nom_fct2 sur l'intervalle [a, b] découpé de 11 manière différentes. Le tableau en sortie sera alors de dimension 2x3x12. Une des dimension et 12 et non 11 car le premier élément est le nom de la fonction, les 11 autres sont les triplets temps, résultat, erreur pour cette fonction sur les 11 découpages.
+
 
 
 ## affichage.py
 
 Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'intégrale et leur temps de calcul sur deux graphiques différents.
 
-Pour ce faire il utilise d'abord deux fonctions pour récupérer le temps de calcul et l'erreur relative : 
-- recuperer_tps(liste_compare) : liste_compare est une liste renvoyer par la fonction compare implémentée dans analyse.py. La fonction retourne la liste des temps de calcul pour chaque fonction comparée.
-- recuperer_err(liste_compare) : liste_compare est une liste renvoyer par la fonction compare implémentée dans analyse.py. La fonction retourne la liste des erreurs relatives pour chaque fonction comparée.
+Les fonctions y étant implémentées permettent de tracer les temps d'exécution et les erreurs relatives de chaque méthode de différentes manières. Afficher les temps de calcul seulement, les erreur seulement, pour une méthode, pour toutes les implémentations d'une méthode, pour chaque type d'implémentation...
 
 
 ## main.py
