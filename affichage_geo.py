@@ -1,22 +1,9 @@
-# -------------------------------------------------------------------------- #
-#SCRIPT REALISANT L'AFFICHAGE DES DIFFERENTES METHODES
-# -------------------------------------------------------------------------- #
-# MGA-802
+"""Script affichant la représentation graphique des méthode d'intégration: rectangle, trapèze et Simpson"""
 
-
-# -------------------------------------------------------------------------- #
-#IMPORTATION#
-# -------------------------------------------------------------------------- #
 import matplotlib.pyplot as plt
 import numpy as np
 from methode_rectangles import methode_rectangle_numpy
-from calculs import evaluation
-
-
-# -------------------------------------------------------------------------- #
-#FONCTIONS#
-# -------------------------------------------------------------------------- #
-
+from calculs import  evaluation
 def affichage_rectangle(liste, a, b, n):  # Affichage de la méthode des rectangles
 
     # Plot fonction analytique
@@ -79,7 +66,7 @@ def affichage_trapeze(liste, a, b, n):
              color='blue')
 
     # Calcul des coordonnées des trapèzes
-    x_trapeze = np.linspace(a, b, n + 1)  # Liste des abscisses des points évalués
+    x_trapeze = np.linspace(a, b, n)  # Liste des abscisses des points évalués
     y_trapeze = evaluation(liste, x_trapeze)  # On évalue tout simplement les points
 
     # Plot des trapèzes et remplissage pour symboliser l'aire
@@ -117,10 +104,12 @@ def affichage_simpson(liste, a, b, n):
     # Initialisation des listes de coordonnées
     x_simpson = []
     y_simpson = []
-    x = np.linspace(a, b, n + 1)
+    x = np.linspace(a, b, 2*n + 1)  # On ajoute des points afin d'avoir trois points sur un segment évalué
     y = evaluation(liste, x)
 
-    for i in range(0, n, 2):
+    # La méthode Simpson fait une approximation de la courbe sur un segment par une parabolle. Sur chaque segment
+    # [a,b] on considère 3 points : a, a+b/2 et b par lesquels la parabole doit passer.
+    for i in range(0, 2*n, 2):
         x_simpson2 = np.linspace(x[i], x[i + 2], 10)
         y_simpson2 = np.polyval(np.polyfit([x[i], x[i + 1], x[i + 2]], [y[i], y[i + 1], y[i + 2]], 2), x_simpson2)
         x_simpson.append(x_simpson2)
@@ -134,11 +123,11 @@ def affichage_simpson(liste, a, b, n):
     plt.fill_between(x_simpson, 0, y_simpson, color='orange', alpha=0.3, label='Approximation de l\'aire')
 
     # Ajouter des points (ronds rouges) pour bien les voir
-    plt.scatter(x, y, color='red', s=10)
-
-    # Ajouter des lignes verticales pour délimiter les segments
     x_segment = x[::2]  # On en prend que un sur deux car un segment est est évalué sur 3 points: a, a+b/2, b
     y_segment = y[::2]  # on ne veut afficher que les points a et b qui délimitent le segment
+    plt.scatter(x_segment, y_segment, color='red', s=10)
+
+    # Ajouter des lignes verticales pour délimiter les segments
     plt.vlines(x_segment, 0, y_segment, colors='orange', linewidth=1)
 
     # Configurer le graphique
