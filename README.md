@@ -12,13 +12,15 @@ Pour pouvoir faire fonctionner le code correctement, il faut au préalable insta
 
 Ensuite différent fichier peuvent être lancé en focntion des besoin: 
 - main_geometrique.py: pour afficher la représentation graphique des différentes méthode d'intégration
-- affichage_3D.py : pour tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative pour chaque méthode
+- affichage_3d.py : pour tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative pour chaque méthode
 - affichage.py : pour afficher le temps de calcul et l'erreur relative sur un graphique pour chaque fonction de calcul d'intégrale
+
 # Stratégie adoptée pour la structure du code
 
-Le code est structuré en 7 fichiers : calculs.py, methode_rectangles.py, methode_trapezes.py, methode_simpson.py, affichage.py, analyse.py et main.py.
+Le code est structuré en 9 fichiers : calculs.py, methode_rectangles.py, methode_trapezes.py, methode_simpson.py, analyse.py, affichage.py, affichage_
+geo.py, affichage_3d.py et main_geometrique.py.
 
-Dans un premier temps les scripts calculs.py, methode_rectangles.py, methode_trapezes.py et methode_simpson.py ont été implémentées pour calculer les intégrales selon les méthodes proposées. Ensuite nous avons implémenté le script analyse.py afin de récupérer le temps de calcul des méthodes et leur erreur relative et de les comparer sur un graphique pour plusieurs segments.
+Dans un premier temps les scripts calculs.py, methode_rectangles.py, methode_trapezes.py et methode_simpson.py ont été implémentées pour calculer les intégrales selon les méthodes proposées. Ensuite nous avons implémenté le script analyse.py afin de récupérer le temps de calcul des méthodes et leur erreur relative et de les comparer sur un graphique pour plusieurs segments. Enfin nous avons ajouté affichage.py, affichage_geo.py, affichage_3d.py et main_geometrique.py qui permettent d'afficher nos résultats sur un graphique.
 
 ## calculs.py
 
