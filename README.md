@@ -53,8 +53,9 @@ Ce script est composé de trois fonctions :
 
 ## analyse.py
 
-
-
+Ce script permet d'analyser les performances des fonctions d'intégration numérique :
+- analyse(nom_fct, P, a, b, nbre_seg): Cette fonction analyse une méthode d'intégration numérique et retourne les valeurs du temps de calcul, du résultat et de son erreur relative en comparaison à l'intégration analytique exacte. les paramètres d'entrée sont: le nom de la méthode, la liste des coefficients du polynôme de 3ème degré, les bornes a et b et le nombre de segments
+- compare(nom_fct1, nom_fct2, P, a, b): Cette fonction met en forme les résultats de l'analyse de deux méthodes. Le tableau_compare de sorti est un tableau de 3 dimensions comprenant pour chacune des deux méthodes, les résultats d'analyse() sur 10 valeurs du nombre de segments différentes. Le tableau_nombre_segment est un vecteur composé des nombres de segments imposés (10 nombres différents).
 
 ## affichage_geo.py
 
@@ -89,5 +90,6 @@ Les fonctions y étant implémentées permettent de tracer les temps d'exécutio
 
 ## main_affichage_3d.py
 
-
-
+Ce code va permettre de tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative en fonction du nombre de segments pour chaque méthode
+- affichage_convergence_base(nom): Cette procedure permet de créer les vecteurs X (nombres de segments), Y(temps de calcul) et Z(erreur relative) pour le tracé de la méthode nom (methode_trapezes_python, methode_rectangle_python, methode_simpson_python...).
+- trace(nom): Cette procédure permet d'afficher les tracés des différentes méthode implémentées dans la version nom (python, numpy ou existante) sur le même graphe.
