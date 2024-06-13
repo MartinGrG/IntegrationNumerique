@@ -10,10 +10,12 @@ Pour pouvoir faire fonctionner le code correctement, il faut au préalable insta
 - matplotlib
 - timeit
 
-Ensuite différent fichier peuvent être lancé en focntion des besoin: 
+Ensuite différent fichier peuvent être lancé en fonction des besoin: 
 - main_affichage_2d.py: pour afficher la représentation graphique des différentes méthode d'intégration
 - main_affichage_3d.py : pour tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative pour chaque méthode
 - main_affichage_geo.py : pour afficher le temps de calcul et l'erreur relative sur un graphique pour chaque fonction de calcul d'intégrale
+
+Le document final du projet étant un rapport pdf, il était plus simple pour nous de ne pas faire un seul et unique fichier main.py mais plutôt plusieurs fichiers donnant des résultats plus spécifiques.
 
 # Stratégie adoptée pour la structure du code
 
