@@ -13,6 +13,7 @@ Pour pouvoir faire fonctionner le code correctement, il faut au préalable insta
 Ensuite différent fichier peuvent être lancé en focntion des besoin: 
 - main_geometrique.py: pour afficher la représentation graphique des différentes méthode d'intégration
 - affichage_3D.py : pour tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative pour chaque méthode
+- affichage.py : pour afficher le temps de calcul et l'erreur relative sur un graphique pour chaque fonction de calcul d'intégrale
 # Stratégie adoptée pour la structure du code
 
 Le code est structuré en 7 fichiers : calculs.py, methode_rectangles.py, methode_trapezes.py, methode_simpson.py, affichage.py, analyse.py et main.py.
