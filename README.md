@@ -56,12 +56,6 @@ Ce script est composé de trois fonctions :
 
 
 
-## main_affichage_2d.py
-
-Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'intégrale et leur temps de calcul sur deux graphiques différents.
-
-Les fonctions y étant implémentées permettent de tracer les temps d'exécution et les erreurs relatives de chaque méthode de différentes manières. Afficher les temps de calcul seulement, les erreur seulement, pour une méthode, pour toutes les implémentations d'une méthode, pour chaque type d'implémentation...
-
 ## affichage_geo.py
 
 Ce script permet de représenter visuelement les méthodes d'approximation d'intégraion:
@@ -71,6 +65,12 @@ Ce script permet de représenter visuelement les méthodes d'approximation d'int
  
 ## main_affichage_geo.py
 Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthodes (rectangle, trapeze et Simpson) selon les paramètres P: contenant les coefficients du polynôme, a: début de l'interval, b: fin de l'interval, n1: nombre de segments pour le premier graphique, n2: nombre de segments pour le second graphique, n3: nombre de segments pour le troisième graphique.
+
+## main_affichage_2d.py
+
+Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'intégrale et leur temps de calcul sur deux graphiques différents.
+
+Les fonctions y étant implémentées permettent de tracer les temps d'exécution et les erreurs relatives de chaque méthode de différentes manières. Afficher les temps de calcul seulement, les erreur seulement, pour une méthode, pour toutes les implémentations d'une méthode, pour chaque type d'implémentation...
 
 ## main_affichage_3d.py
 
