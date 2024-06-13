@@ -351,21 +351,21 @@ def tracer_python():
     # Affichage du graphique
     plt.show()
 
-# #Tracer les graphes :
-# tracer_tps_calcul_rectangles()
-# tracer_tps_calcul_trapezes()
-# tracer_tps_calcul_simpson()
-# tracer_err_rectangle()
-# tracer_err_trapeze()
-# tracer_err_simpson()
-#
-# tracer_tps_calcul_numpy_python()
-# tracer_err_numpy_python()
+#Tracer les graphes :
+tracer_tps_calcul_rectangles()
+tracer_tps_calcul_trapezes()
+tracer_tps_calcul_simpson()
+tracer_err_rectangle()
+tracer_err_trapeze()
+tracer_err_simpson()
 
-# tracer_rectangle()
-# tracer_trapeze()
-# tracer_simpson()
-# tracer_python()
-# tracer_numpy()
+tracer_tps_calcul_numpy_python()
+tracer_err_numpy_python()
+
+tracer_rectangle()
+tracer_trapeze()
+tracer_simpson()
+tracer_python()
+tracer_numpy()
 
 tracer_simpson()
