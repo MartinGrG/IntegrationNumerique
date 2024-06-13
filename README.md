@@ -70,7 +70,7 @@ Ce script permet de représenter visuelement les méthodes d'approximation d'int
 ## main_affichage_geo.py
 Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthodes (rectangle, trapeze et Simpson) selon les paramètres P: contenant les coefficients du polynôme, a: début de l'interval, b: fin de l'interval, n1: nombre de segments pour le premier graphique, n2: nombre de segments pour le second graphique, n3: nombre de segments pour le troisième graphique.
 
-## main_affichage_3d
+## main_affichage_3d.py
 
 
 
