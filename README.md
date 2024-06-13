@@ -69,8 +69,23 @@ Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthod
 ## main_affichage_2d.py
 
 Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'intégrale et leur temps de calcul sur deux graphiques différents.
-
 Les fonctions y étant implémentées permettent de tracer les temps d'exécution et les erreurs relatives de chaque méthode de différentes manières. Afficher les temps de calcul seulement, les erreur seulement, pour une méthode, pour toutes les implémentations d'une méthode, pour chaque type d'implémentation...
+
+- tracer_tps_calcul_rectangles(): Trace le temps de calcul en fonction du nombre de segments pour la méthode des rectangles, en comparant l'implémentation de base et l'implémentation utilisant Numpy.
+- tracer_tps_calcul_trapezes(): Trace le temps de calcul en fonction du nombre de segments pour la méthode des trapèzes, en comparant l'implémentation de base, l'implémentation utilisant Numpy, et une implémentation existante.
+- tracer_tps_calcul_simpson(): Trace le temps de calcul en fonction du nombre de segments pour la méthode de Simpson, en comparant l'implémentation de base, l'implémentation utilisant Numpy, et une implémentation existante.
+- tracer_err_rectangle(): Trace l'erreur relative en fonction du nombre de segments pour la méthode des rectangles, en comparant l'implémentation de base et l'implémentation utilisant Numpy.
+- tracer_err_trapeze(): Trace l'erreur relative en fonction du nombre de segments pour la méthode des trapèzes, en comparant l'implémentation de base, l'implémentation utilisant Numpy, et une implémentation existante.
+- tracer_err_simpson(): Trace l'erreur relative en fonction du nombre de segments pour la méthode de Simpson, en comparant l'implémentation de base, l'implémentation utilisant Numpy, et une implémentation existante.
+- tracer_tps_calcul_numpy_python(): Trace le temps de calcul en fonction du nombre de segments pour les méthodes des rectangles, des trapèzes et de Simpson, en comparant les implémentations de base en Python et celles utilisant Numpy.
+- tracer_err_numpy_python(): Trace l'erreur relative en fonction du nombre de segments pour les méthodes des rectangles, des trapèzes et de Simpson, en comparant les implémentations de base en Python et celles utilisant Numpy.
+- tracer_rectangle(): Trace à la fois le temps de calcul et l'erreur relative en fonction du nombre de segments pour la méthode des rectangles, en comparant l'implémentation de base et l'implémentation utilisant Numpy.
+- tracer_trapeze(): Trace à la fois le temps de calcul et l'erreur relative en fonction du nombre de segments pour la méthode des trapèzes, en comparant l'implémentation de base, l'implémentation utilisant Numpy, et une implémentation existante.
+- tracer_simpson(): Trace à la fois le temps de calcul et l'erreur relative en fonction du nombre de segments pour la méthode de Simpson, en comparant l'implémentation de base, l'implémentation utilisant Numpy, et une implémentation existante.
+- tracer_numpy(): Trace à la fois le temps de calcul et l'erreur relative en fonction du nombre de segments pour les méthodes des rectangles, des trapèzes et de Simpson, toutes utilisant Numpy.
+- tracer_python(): Trace à la fois le temps de calcul et l'erreur relative en fonction du nombre de segments pour les méthodes des rectangles, des trapèzes et de Simpson, toutes utilisant les implémentations de base en Python.
+
+
 
 ## main_affichage_3d.py
 
