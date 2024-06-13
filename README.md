@@ -90,6 +90,6 @@ Les fonctions y étant implémentées permettent de tracer les temps d'exécutio
 
 ## main_affichage_3d.py
 
-Ce code va permettre de tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative en fonction du nombre de segments pour chaque méthode
+Ce code va permettre de tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative en fonction du nombre de segments pour chaque méthode:
 - affichage_convergence_base(nom): Cette procedure permet de créer les vecteurs X (nombres de segments), Y(temps de calcul) et Z(erreur relative) pour le tracé de la méthode nom (methode_trapezes_python, methode_rectangle_python, methode_simpson_python...).
 - trace(nom): Cette procédure permet d'afficher les tracés des différentes méthode implémentées dans la version nom (python, numpy ou existante) sur le même graphe.
