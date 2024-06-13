@@ -10,9 +10,8 @@ Pour pouvoir faire fonctionner le code correctement, il faut au préalable insta
 - matplotlib
 - timeit
 
-Ensuite selon les manipulation à faire, il est possible de comparer les fonctions deux à deux, analyser et appeler les fonctions dans le fichier main.py.
-
-
+Ensuite différent fichier peuvent être lancé en focntion des besoin: 
+- main_geometrique.py: pour afficher la représentation graphique des différentes méthode d'intégration
 # Stratégie adoptée pour la structure du code
 
 Le code est structuré en 7 fichiers : calculs.py, methode_rectangles.py, methode_trapezes.py, methode_simpson.py, affichage.py, analyse.py et main.py.
