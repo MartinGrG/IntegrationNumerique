@@ -1,24 +1,15 @@
-# -------------------------------------------------------------------------- #
-               #SCRIPT REALISANT LES INTEGRATIONS NUMERIQUE
-        # AVEC LES METHODES DES TRAPEZES (PYTHON ET NUMPY VERSION)#
-# -------------------------------------------------------------------------- #
-# MGA-802
+"""
+SCRIPT REALISANT LES INTEGRATIONS NUMERIQUE AVEC LES METHODES DES TRAPEZES (PYTHON ET NUMPY VERSION)
 
-# Ce script est composé de deux fonctions. Elles réalisent toutes les deux
-# une intégration numérique d'un polynome de 3eme degré donné entre a et b
-# par la méthode des trapèzes. L'une est réalisée avec les outils Python de
-# base et l'autre à l'aide de Numpy.
-
-
-# -------------------------------------------------------------------------- #
-                              #IMPORTATION#
-# -------------------------------------------------------------------------- #
+Ce script est composé de deux fonctions. Elles réalisent toutes les deux
+une intégration numérique d'un polynome de 3eme degré donné entre a et b
+par la méthode des trapèzes. L'une est réalisée avec les outils Python de
+base et l'autre à l'aide de Numpy.
+"""
 
 import numpy as np
 from calculs import evaluation
-# -------------------------------------------------------------------------- #
-                              #FONCTIONS#
-# -------------------------------------------------------------------------- #
+
 
 
 def methode_trapezes_python(P, a, b, nbre):

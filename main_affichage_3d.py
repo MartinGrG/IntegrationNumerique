@@ -1,5 +1,7 @@
-"""Ce code va permettre de tracer les graphiques 3D mettant en relation directe le temps de
-calcul et l'erreur relative pour chaque méthode"""
+"""
+Ce code va permettre de tracer les graphiques 3D mettant en relation directe le temps de
+calcul et l'erreur relative pour chaque méthode
+"""
 
 from analyse import *
 from methode_trapezes import *

@@ -1,9 +1,6 @@
-# -------------------------------------------------------------------------- #
-               #SCRIPT REALISANT LES INTEGRATIONS NUMERIQUE
-        # AVEC LES METHODES DES TRAPEZES (PYTHON ET NUMPY VERSION)#
-# -------------------------------------------------------------------------- #
-# MGA-802
-
+"""
+SCRIPT REALISANT LES INTEGRATIONS NUMERIQUE AVEC LES METHODES DES TRAPEZES (PYTHON ET NUMPY VERSION)#
+"""
 # Ce script est composé de deux fonctions. L'une évalue un polynome de 3eme
 # degré en une valeur imposée et l'autre calcule l'intégrale entre a et b.
 

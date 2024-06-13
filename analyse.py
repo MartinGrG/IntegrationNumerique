@@ -1,4 +1,6 @@
-"""Ce script permet d'analyser les performances des fonctions d'intégration numérique"""
+"""
+Ce script permet d'analyser les performances des fonctions d'intégration numérique
+"""
 
 from timeit import timeit
 import numpy as np
@@ -12,7 +14,7 @@ from calculs import integrale_analytique
 # Entrées : - nom de la méthode
 #           - liste des coefficients du polynome de 3ème degré
 #           - bornes a et b
-#           - nombre de
+#           - nombre de segments
 # Sorties :
 #           - Temps de calcul
 #           - valeur du résultat

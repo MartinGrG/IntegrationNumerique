@@ -1,6 +1,8 @@
-"""Calcul d'intégrale par la méthode des rectangles
-    Rappel de la méthode des rectangles pour n éléments :
-    integrale = somme de n éléments de f((x(i)+x(i+1))/2)*(x(i+1)-x(i))"""
+"""
+Calcul d'intégrale par la méthode des rectangles
+Rappel de la méthode des rectangles pour n éléments :
+integrale = somme de n éléments de f((x(i)+x(i+1))/2)*(x(i+1)-x(i))
+"""
 
 import numpy as np
 from calculs import evaluation

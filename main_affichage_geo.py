@@ -1,4 +1,7 @@
-"Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthodes: rectangles, trapezes et Simpson)"
+"""
+Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthodes: rectangles, trapezes et Simpson)
+"""
+
 import matplotlib.pyplot as plt
 from affichage_geo import *
 

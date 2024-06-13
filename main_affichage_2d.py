@@ -1,5 +1,7 @@
-"""Ce script permet d'afficher le temps de calcul et l'erreur relative sur un graphique
-pour chaque fonction de calcul d'intégrale"""
+"""
+Ce script permet d'afficher le temps de calcul et l'erreur relative sur un graphique
+pour chaque fonction de calcul d'intégrale
+"""
 
 import matplotlib.pyplot as plt
 from analyse import *

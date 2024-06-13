@@ -1,4 +1,6 @@
-"""Script affichant la représentation graphique des méthode d'intégration: rectangle, trapèze et Simpson"""
+"""
+Script affichant la représentation graphique des méthode d'intégration: rectangle, trapèze et Simpson
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np

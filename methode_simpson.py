@@ -1,4 +1,6 @@
-"""Ce script permet d'évaluer une intégrale en utilisant la méthode de Simpson"""
+"""
+Ce script permet d'évaluer une intégrale en utilisant la méthode de Simpson
+"""
 import numpy as np
 from calculs import *
 import scipy as sp
