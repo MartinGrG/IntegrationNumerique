@@ -57,6 +57,15 @@ Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'
 
 Les fonctions y étant implémentées permettent de tracer les temps d'exécution et les erreurs relatives de chaque méthode de différentes manières. Afficher les temps de calcul seulement, les erreur seulement, pour une méthode, pour toutes les implémentations d'une méthode, pour chaque type d'implémentation...
 
+## affichage_geo.py
+
+Ce script permet de représenter visuelement les méthodes d'approximation d'intégraion:
+- affichage_rectangle(liste, a, b, n): renvoi un type plt que l'on peut afficher afin d'observer la méthode des rectangles appliquée au polynôme de coefficients contenu dans la liste "list", sur l'interval [a,b] contenant n intervals.
+- affichage_trapeze(liste, a, b, n): renvoi un type plt que l'on peut afficher afin d'observer la méthode des trapezes appliquée au polynôme de coefficients contenu dans la liste "list", sur l'interval [a,b] contenant n intervals.
+- - affichage_simpson(liste, a, b, n): renvoit un type plt que l'on peut afficher afin d'observer la méthode simpson appliquée au polynôme de coefficients contenu dans la liste "list", sur l'interval [a,b] contenant n intervals.
+ 
+## main_geometrique.py
+Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthodes (rectangle, trapeze et Simpson) selon les paramètres P: contenant les coefficients du polynôme, a: début de l'interval, b: fin de l'interval, n1: nombre de segments pour le premier graphique, n2: nombre de segments pour le second graphique, n3: nombre de segments pour le troisième graphique.
 
 ## main.py
 
