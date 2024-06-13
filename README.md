@@ -11,9 +11,9 @@ Pour pouvoir faire fonctionner le code correctement, il faut au préalable insta
 - timeit
 
 Ensuite différent fichier peuvent être lancé en focntion des besoin: 
-- main_geometrique.py: pour afficher la représentation graphique des différentes méthode d'intégration
-- affichage_3d.py : pour tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative pour chaque méthode
-- affichage.py : pour afficher le temps de calcul et l'erreur relative sur un graphique pour chaque fonction de calcul d'intégrale
+- main_affichage_2d.py: pour afficher la représentation graphique des différentes méthode d'intégration
+- main_affichage_3d.py : pour tracer les graphiques 3D mettant en relation directe le temps de calcul et l'erreur relative pour chaque méthode
+- main_affichage_geo.py : pour afficher le temps de calcul et l'erreur relative sur un graphique pour chaque fonction de calcul d'intégrale
 
 # Stratégie adoptée pour la structure du code
 
@@ -54,7 +54,7 @@ Ce script est composé de trois fonctions :
 
 
 
-## affichage.py
+## main_affichage_2d.py
 
 Ce script permet de tracer les erreurs relatives de chaque méthode de calcul d'intégrale et leur temps de calcul sur deux graphiques différents.
 
@@ -67,10 +67,10 @@ Ce script permet de représenter visuelement les méthodes d'approximation d'int
 - affichage_trapeze(liste, a, b, n): renvoie un type plt que l'on peut afficher afin d'observer la méthode des trapezes appliquée au polynôme de coefficients contenu dans la liste "list", sur l'interval [a,b] contenant n intervals.
 - affichage_simpson(liste, a, b, n): renvoie un type plt que l'on peut afficher afin d'observer la méthode simpson appliquée au polynôme de coefficients contenu dans la liste "list", sur l'interval [a,b] contenant n intervals.
  
-## main_geometrique.py
+## main_affichage_geo.py
 Ce script permet en le lançant d'afficher 3 graphiques pour chacune des méthodes (rectangle, trapeze et Simpson) selon les paramètres P: contenant les coefficients du polynôme, a: début de l'interval, b: fin de l'interval, n1: nombre de segments pour le premier graphique, n2: nombre de segments pour le second graphique, n3: nombre de segments pour le troisième graphique.
 
-## affichage_3D.py
+## main_affichage_3d
 
 
 
